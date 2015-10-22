@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-int const n=5; 
-int const m=5;
+int const n=1; 
+int const m=3;
 int const nb_sommets = (n*m) + 1;  
 
  
@@ -46,25 +46,25 @@ int main(int argc, char const *argv[])
 		for (int j = 0; j < nb_sommets; ++j)
 			graphe[i][j]=0;
 
-	for (int j = 0; j < m; ++j)
+	for (int j = 0; j < n; ++j)
 	{
-		for (int i = 0; i < n; ++i)
+		for (int i = 0; i < m; ++i)
 		{
 			//pour chaque salle on peut accéder à celle à droite ou en dessous (et inversement)
 
 			//Pour en dessous
-			if(j+1 < m){
-				graphe[j*n+i][j*n+i+n]=tab[j][i];
-				graphe[j*n+i+n][j*n+i]=tab[j][i];
+			if(j+1 < n){
+				graphe[j*m+i][j*m+i+m]=tab[j][i];
+				graphe[j*m+i+m][j*m+i]=tab[j][i];
 			}
 
 			//pour à droite
-			if(i+1 < n){
-				graphe[j*n+i][j*n+i+1]=tab[j][i];
-				graphe[j*n+i+1][j*n+i]=tab[j][i];
+			if(i+1 < m){
+				graphe[j*m+i][j*m+i+1]=tab[j][i];
+				graphe[j*m+i+1][j*m+i]=tab[j][i];
 			}
 
-			if (i+1 == n && j+1 == m)
+			if (i+1 == m && j+1 == n)
 			{
 				// printf("Dernière pièce\n");
 				graphe[nb_sommets-2][nb_sommets-1]=tab[j][i];
