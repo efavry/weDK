@@ -109,7 +109,7 @@ int main(int argc, char const *argv[])
 			current = &nodes[open[i]];
 			if (((*current).h+(*current).g) < (nodes[open[index_min]].h+nodes[open[index_min]].g))
 				index_min = i; //Si on trouve une valeur plus petite on la prend
-		}cout << endl;
+		}
 
 		current = &nodes[open[index_min]]; //on selectionne le node que l'on va traiter
 		x = open[index_min];
@@ -145,6 +145,7 @@ int main(int argc, char const *argv[])
 	}
 
 	// On affiche le chemin :
+	cout << "Noeuds parcourus (fin vers le début): " << endl;
 	current = &nodes[nbSommets-1];
 	while((*current).g != 0){
 		cout << (*current).idParent <<endl;
@@ -152,10 +153,7 @@ int main(int argc, char const *argv[])
 	}
 
 
-
-
-
-		// Affichage de la carte 
+	// Affichage de la carte 
 	for (int i = 0; i < n; ++i)
 	  {
 	  	for (int j = 0; j < m; ++j)
@@ -164,16 +162,6 @@ int main(int argc, char const *argv[])
 	  	}
 	  	printf("\n");
 	  }
-	// 	// Affichage de la matrice d'adjacence
-	// for (int i = 0; i < nbSommets; ++i)
-	//   {
-	//   	printf("[ ");
-	//   	for (int j = 0; j < nbSommets; ++j)
-	//   	{
-	//   		printf("%d ", *(*(matrice+i)+j));
-	//   	}
-	//   	printf("] \n");
-	//    }
 
 
 	return 0;
